@@ -10,9 +10,9 @@ import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Component;
 
-@Component
 @Slf4j
 @RequiredArgsConstructor
+@Component
 public class DrinkRequestListener {
 
     private final DrinkRequestProcessor drinkRequestProcessor;
@@ -20,7 +20,7 @@ public class DrinkRequestListener {
 
     @KafkaListener(groupId = "IceColdListener", topics = KafkaConfig.DRINK_REQUEST_ICE_COLD_TOPIC)
     public void listenDrinkRequest(DrinkRequestEvent drinkRequestEvent) {
-        log.debug("Listening Drink Request Event in Drink Request Processor");
+        log.debug("Listening Drink Request Event in Drink Request Listener");
 
         drinkRequestProcessor.processDrinkRequest(drinkRequestEvent);
 
